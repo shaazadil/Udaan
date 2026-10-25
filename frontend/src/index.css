@@ -1,29 +1,86 @@
+@import './styles/design-tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
-    @apply bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    background-color: #F8F7F3;
+    color: #20231F;
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    selection-background-color: #315C46;
+    selection-color: #FFFFFF;
+  }
+
+  ::selection {
+    background-color: #315C46;
+    color: #FFFFFF;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid #315C46;
+    outline-offset: 2px;
   }
 }
 
-/* Custom subtle scrollbar */
+/* Custom editorial scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #F2EFE8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 3px;
+  background: #D8D5CB;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #B4B1A7;
+}
+
+/* Dark surface scrollbar */
+.dark-scroll::-webkit-scrollbar-track {
+  background: #171A17;
+}
+
+.dark-scroll::-webkit-scrollbar-thumb {
+  background: #2D312C;
+}
+
+.dark-scroll::-webkit-scrollbar-thumb:hover {
+  background: #3E7358;
+}
+
+/* Typography clamped utility */
+.hero-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.section-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw + 0.5rem, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.sub-headline {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.2vw + 0.2rem, 1.25rem);
+  line-height: 1.6;
 }

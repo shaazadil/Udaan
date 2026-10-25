@@ -23,11 +23,11 @@ public class ResumeAnalysis {
     @Column(name = "compatibility_score", nullable = false, precision = 5, scale = 2)
     private BigDecimal compatibilityScore;
 
-    @Lob
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
     @Column(name = "matching_skills", columnDefinition = "JSON")
     private String matchingSkills;
 
-    @Lob
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
     @Column(name = "missing_skills", columnDefinition = "JSON")
     private String missingSkills;
 

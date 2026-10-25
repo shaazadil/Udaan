@@ -13,9 +13,25 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @com.fasterxml.jackson.annotation.JsonProperty("userId")
+    public Long fetchUserId() {
+        return user != null ? user.getId() : null;
+    }
+
+    @com.fasterxml.jackson.annotation.JsonProperty("jobTitle")
+    public String fetchJobTitle() {
+        return job != null ? job.getJobTitle() : "";
+    }
+
+    @com.fasterxml.jackson.annotation.JsonProperty("companyName")
+    public String fetchCompanyName() {
+        return job != null ? job.getCompanyName() : "";
+    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "job_id", nullable = false)

@@ -215,10 +215,18 @@ export interface CareerReadinessSummary {
   targetRole: string;
   totalSkillsProfiled: number;
   advancedSkillsCount: number;
-  latestCompatibilityScore: number;
+  latestCompatibilityScore: number | null;
   avgRoadmapCompletion: number;
   avgInterviewScore: number;
   totalNotesSaved: number;
   totalApplications: number;
   activeRoadmapTitle?: string;
+  readinessIndex: number;
+  latestJobTitle?: string;
+  latestCompanyName?: string;
+  latestMatchingSkills?: string[];
+  latestMissingSkills?: string[];
+  latestRecommendation?: string;
+  latestInterviewSummary?: string;
+  recentNoteTitles?: string[];
 }

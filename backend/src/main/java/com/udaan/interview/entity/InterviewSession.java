@@ -16,13 +16,20 @@ public class InterviewSession {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "job_id")
     private Job job;
+
+    @com.fasterxml.jackson.annotation.JsonProperty("userId")
+    public Long fetchUserId() {
+        return user != null ? user.getId() : null;
+    }
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

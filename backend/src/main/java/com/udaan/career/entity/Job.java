@@ -14,9 +14,15 @@ public class Job {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @com.fasterxml.jackson.annotation.JsonProperty("userId")
+    public Long fetchUserId() {
+        return user != null ? user.getId() : null;
+    }
 
     @Column(name = "job_title", nullable = false, length = 200)
     private String jobTitle;

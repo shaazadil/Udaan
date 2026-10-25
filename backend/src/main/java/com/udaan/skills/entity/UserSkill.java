@@ -15,9 +15,25 @@ public class UserSkill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @com.fasterxml.jackson.annotation.JsonProperty("userId")
+    public Long fetchUserId() {
+        return user != null ? user.getId() : null;
+    }
+
+    @com.fasterxml.jackson.annotation.JsonProperty("skillName")
+    public String fetchSkillName() {
+        return skill != null ? skill.getName() : "";
+    }
+
+    @com.fasterxml.jackson.annotation.JsonProperty("category")
+    public String fetchCategory() {
+        return skill != null ? skill.getCategory() : "";
+    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "skill_id", nullable = false)

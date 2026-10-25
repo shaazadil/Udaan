@@ -1,0 +1,42 @@
+/* =============================================================================
+   UDAAN DESIGN TOKENS
+   Cinematic. Editorial. Minimal. Premium. Distinctive. Indian-rooted.
+   ============================================================================= */
+
+:root {
+  /* Brand Core Colors */
+  --color-forest: #315C46;
+  --color-forest-deep: #203A2E;
+  --color-forest-dark: #1B3127;
+  --color-forest-light: #3E7358;
+  --color-forest-surface: #EBF2EE;
+  
+  --color-charcoal: #20231F;
+  --color-charcoal-deep: #171A17;
+  --color-charcoal-pure: #0F120F;
+  
+  --color-ivory: #F8F7F3;
+  --color-ivory-warm: #F2EFE8;
+  --color-white: #FFFFFF;
+  
+  --color-border: #E6E4DD;
+  --color-border-dark: #D8D5CB;
+  --color-muted: #74776F;
+  --color-subtle: #9A9C96;
+  
+  --color-saffron: #C58A43;
+  --color-saffron-deep: #A77030;
+  --color-saffron-subtle: #FAF4EB;
+
+  /* Status Tokens */
+  --color-success: #2D6A4F;
+  --color-warning: #B5651D;
+  --color-error: #A33316;
+  --color-info: #26547C;
+
+  /* Typography Stacks */
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-devanagari: 'Noto Sans Devanagari', sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+}
