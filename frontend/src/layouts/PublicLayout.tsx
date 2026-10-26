@@ -39,14 +39,30 @@ export const PublicLayout: React.FC = () => {
             : 'bg-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          {/* Brand Logo */}
-          <Link to="/" className="focus:outline-none">
-            <UdaanLogo size={36} variant="cinematic" showTagline={false} />
-          </Link>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between gap-6">
+          {/* Brand Logos: Manipal University Jaipur + UDAAN */}
+          <div className="flex items-center gap-4 lg:gap-5 flex-shrink-0">
+            <a
+              href="https://jaipur.manipal.edu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center opacity-90 hover:opacity-100 transition-opacity focus:outline-none"
+              title="Manipal University Jaipur"
+            >
+              <img
+                src="/muj_logo_transparent.png"
+                alt="Manipal University Jaipur"
+                className="h-7 lg:h-8 w-auto object-contain"
+              />
+            </a>
+            <div className="h-5 w-px bg-white/20" />
+            <Link to="/" className="focus:outline-none flex items-center">
+              <UdaanLogo size={32} variant="cinematic" showTagline={false} />
+            </Link>
+          </div>
 
-          {/* Center Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-white/80">
+          {/* Center Navigation Links with balanced spacing */}
+          <nav className="hidden lg:flex items-center gap-7 xl:gap-9 text-sm font-medium text-white/75">
             <button
               onClick={() => scrollToSection('problem')}
               className="hover:text-white transition-colors duration-150 cursor-pointer focus:outline-none"
@@ -74,19 +90,21 @@ export const PublicLayout: React.FC = () => {
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-3 lg:gap-4 flex-shrink-0">
             <Link
               to="/login"
-              className="text-sm font-medium text-white/90 hover:text-white px-3 py-2 transition-colors"
+              className="text-sm font-medium text-white/80 hover:text-white px-3 py-1.5 transition-colors"
             >
               Sign In
             </Link>
             <Button
               size="sm"
               variant="saffron"
+              rounded="full"
               onClick={() => navigate('/register')}
               icon={<IconArrowRight size={14} />}
               iconPosition="right"
+              className="px-5 shadow-sm"
             >
               Get Started
             </Button>

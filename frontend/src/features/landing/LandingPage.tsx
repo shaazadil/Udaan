@@ -46,17 +46,6 @@ export const LandingPage: React.FC = () => {
         />
 
         <div className="relative max-w-5xl mx-auto text-center z-10 flex flex-col items-center">
-          {/* Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-forest-deep/80 border border-forest/40 text-saffron text-xs font-semibold tracking-widest uppercase mb-8 shadow-subtle"
-          >
-            <span className="w-2 h-2 rounded-full bg-saffron animate-pulse" />
-            YOUR FUTURE, IN MOTION.
-          </motion.div>
-
           {/* Main Editorial Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 25 }}
@@ -87,6 +76,7 @@ export const LandingPage: React.FC = () => {
             <Button
               size="lg"
               variant="saffron"
+              rounded="full"
               onClick={() => navigate('/register')}
               icon={<IconArrowRight size={18} />}
               iconPosition="right"
@@ -97,6 +87,7 @@ export const LandingPage: React.FC = () => {
             <Button
               size="lg"
               variant="secondary"
+              rounded="full"
               onClick={() => {
                 const el = document.getElementById('modules');
                 el?.scrollIntoView({ behavior: 'smooth' });

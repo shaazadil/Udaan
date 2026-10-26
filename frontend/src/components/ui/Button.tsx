@@ -8,11 +8,13 @@ export interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'children'>
   children: React.ReactNode;
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
+  rounded?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
 }
 
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'md',
+  rounded = 'lg',
   isLoading = false,
   children,
   icon,
@@ -22,7 +24,16 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium transition-colors duration-150 rounded-lg select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+    'inline-flex items-center justify-center font-medium transition-colors duration-150 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+
+  const roundedStyles = {
+    sm: 'rounded-sm',
+    md: 'rounded-md',
+    lg: 'rounded-lg',
+    xl: 'rounded-xl',
+    '2xl': 'rounded-2xl',
+    full: 'rounded-full',
+  }[rounded];
 
   const sizeStyles = {
     sm: 'text-xs px-3 py-1.5 gap-1.5',
@@ -51,7 +62,7 @@ export const Button: React.FC<ButtonProps> = ({
       whileHover={{ y: disabled || isLoading ? 0 : -1 }}
       transition={{ duration: 0.15 }}
       disabled={disabled || isLoading}
-      className={`${baseStyles} ${sizeStyles} ${variantStyles} ${className}`}
+      className={`${baseStyles} ${roundedStyles} ${sizeStyles} ${variantStyles} ${className}`}
       {...props}
     >
       {isLoading ? (
